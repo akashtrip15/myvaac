@@ -26,12 +26,7 @@ public class UserController {
 	
 	@PostMapping("/login")
 	public ResponseEntity<String> login(@RequestBody LoginRequest request){
-		String response = userService.login(request);
-		if(response !=null) {
-			return new ResponseEntity<String>(response, HttpStatus.OK);
-		}else {
-			return new ResponseEntity<String>("Wrong credentials", HttpStatus.UNAUTHORIZED);
-		}
+		return userService.login(request);
 		
 		
 	}
