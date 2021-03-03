@@ -16,17 +16,18 @@ public class UserService {
 	private UserRepository userRepository;
 
 	public String registerUser(User request) {
-		User existingUser = userRepository.findByUserId(request.getUserId());
+		User existingUser = userRepository.findByEmailIdAndMobile(request.getEmailId(), request.getMobile());
 		if (existingUser == null) {
 			userRepository.save(request);
-			return "User Register Successfully. your User Id is " + request.getUserId();
+			return "User Register Successfully. your User Id is " + request.getEmailId();
 		} else {
-			return "UserId " + request.getUserId() + " already exist";
+			return "UserId " + request.getEmailId() + " already exist";
 		}
 	}
 
 	public ResponseEntity<String> login(LoginRequest request) {
-		User user = userRepository.findByUserIdAndPassword(request.getUserId(), request.getPassword());
+		User user =null;
+				//userRepository.findByUserIdAndPassword(request.getUserId(), request.getPassword());
 		if (user != null) {
 			return new ResponseEntity<String>(" User Logged In Successfully", HttpStatus.OK);
 		} else {

@@ -8,8 +8,8 @@ import com.myvaac.vaccination.dto.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer>{
 
-	User findByUserIdAndPassword(String userId, String password);
+	User findByEmailId(String userId);
 
-	User findByUserId(String userId);
+	User findByEmailIdAndMobile(String emailId, String mobile);
 
 }

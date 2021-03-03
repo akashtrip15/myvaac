@@ -1,33 +1,34 @@
 package com.myvaac.vaccination.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.myvaac.vaccination.dto.User;
 import com.myvaac.vaccination.request.LoginRequest;
 import com.myvaac.vaccination.service.UserService;
 
-@RestController
+@Controller
 public class UserController {
 
 	@Autowired
 	private UserService userService;
-	
+
 	@PostMapping("/register")
-	public ResponseEntity<String> registerUser(@RequestBody User request){
-		String response = userService.registerUser(request);
-		return new ResponseEntity<String>(response, HttpStatus.OK);
+	public String registerUser(@ModelAttribute User user,HttpServletRequest request){
+		String response = userService.registerUser(user);
+		request.setAttribute("status", response);
+		//return new ResponseEntity<String>(response, HttpStatus.OK);
+		return "success";
 		
 	}
-	
 	@PostMapping("/login")
 	public ResponseEntity<String> login(@RequestBody LoginRequest request){
 		return userService.login(request);
-		
-		
 	}
 }

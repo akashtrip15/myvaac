@@ -1,7 +1,6 @@
 package com.myvaac.vaccination.dto;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -31,8 +30,9 @@ public class User implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name = "USER_ID")
-	private String userId;
+	/*
+	 * @Column(name = "USER_ID") private String userId;
+	 */
 	
 	@Column(name = "Password")
 	private String password;
@@ -58,6 +58,6 @@ public class User implements Serializable{
 	@Column(name = "ADDRESS")
 	private String address;
 	
-	@Column(name = "DOB")
-	private Date dob;
+	@Column(name = "AGE")
+	private int age;
 }
