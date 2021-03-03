@@ -16,6 +16,7 @@ public class UserService {
 	private UserRepository userRepository;
 
 	public String registerUser(User request) {
+		if(request.getPassword().equals(request.getConfirmPassword())) {
 		User existingUser = userRepository.findByEmailIdAndMobile(request.getEmailId(), request.getMobile());
 		if (existingUser == null) {
 			userRepository.save(request);
@@ -23,11 +24,13 @@ public class UserService {
 		} else {
 			return "UserId " + request.getEmailId() + " already exist";
 		}
+		}else {
+			return "Password and Confirm Password are not same";
+		}
 	}
 
 	public ResponseEntity<String> login(LoginRequest request) {
-		User user =null;
-				//userRepository.findByUserIdAndPassword(request.getUserId(), request.getPassword());
+		User user =	userRepository.findByEmailIdAndPassword(request.getUserId(), request.getPassword());
 		if (user != null) {
 			return new ResponseEntity<String>(" User Logged In Successfully", HttpStatus.OK);
 		} else {

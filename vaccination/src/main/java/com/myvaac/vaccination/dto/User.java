@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -30,13 +31,6 @@ public class User implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	/*
-	 * @Column(name = "USER_ID") private String userId;
-	 */
-	
-	@Column(name = "Password")
-	private String password;
-	
 	@Column(name = "FIRST_NAME")
 	private String firstName;
 	
@@ -47,10 +41,13 @@ public class User implements Serializable{
 	private String country;
 	
 	@Column(name = "MOBILE")
-	private String mobile;
+	private int mobile;
 	
 	@Column(name = "EMAIL_ID")
 	private String emailId;
+	
+	@Column(name = "Password")
+	private String password;
 	
 	@Column(name = "WEIGHT")
 	private int weight;
@@ -60,4 +57,7 @@ public class User implements Serializable{
 	
 	@Column(name = "AGE")
 	private int age;
+	
+	@Transient
+	private String confirmPassword;
 }

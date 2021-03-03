@@ -1,14 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html lang="en">
-   <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="keywords" content="HTML5 Template" />
-      <meta name="description" content="Vaccine@Home &#8211; Medical" />
-      <meta name="author" content="https://www.themetechmount.com/" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-      <title>VaccineAtHome &#8211; Medical, Health and Hospital</title>
-      <!-- favicon icon -->
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="keywords" content="HTML5 Template" />
+<meta name="description" content="Vaccine@Home &#8211; Medical" />
+<meta name="author" content="https://www.themetechmount.com/" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>VaccineAtHome &#8211; Medical, Health and Hospital</title>
+ <!-- favicon icon -->
       <link rel="shortcut icon" href="images/favicon.png" />
       <!-- bootstrap -->
       <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
@@ -146,6 +148,11 @@
          <!--site-main start-->
          <div class="site-main">
             <section class="ttm-row bg-layer bg-layer-equal-height res-991-p-0 clearfix">
+            <center>
+            <div> 
+            <%=request.getAttribute("status") %>
+            </div>
+            </center>
                <div class="container">
                   <div class="row">
                      <div class="col-lg-5">
@@ -286,7 +293,12 @@
                   </div>
                   <!-- row end -->
                </div>
-            </section>
+				<center>
+					<div>
+						<%=request.getAttribute("status")%>
+					</div>
+				</center>
+			</section>
             <!-- intro-section end -->
          </div>
          <!--site-main end-->
@@ -398,7 +410,7 @@
             <div class="bottom-footer-text ttm-textcolor-white">
                <div class="container">
                   <div class="row copyright">
-                     <div class="col-md-12"> <span>Copyright Â© 2019 GapBridage. All Rights Reserved <a href="#">MyVacc</a></span> </div>
+                     <div class="col-md-12"> <span>Copyright © 2019 GapBridage. All Rights Reserved <a href="#">MyVacc</a></span> </div>
                      <div class="col-md-12">
                         <ul id="menu-footer-menu" class="footer-nav-menu">
                            <li><a href="#">About Us</a></li>

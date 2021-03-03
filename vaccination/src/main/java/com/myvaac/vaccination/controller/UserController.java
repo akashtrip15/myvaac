@@ -23,8 +23,8 @@ public class UserController {
 	public String registerUser(@ModelAttribute User user,HttpServletRequest request){
 		String response = userService.registerUser(user);
 		request.setAttribute("status", response);
-		//return new ResponseEntity<String>(response, HttpStatus.OK);
-		return "success";
+		System.out.println("response :"+response);
+		return "register";
 		
 	}
 	@PostMapping("/login")
